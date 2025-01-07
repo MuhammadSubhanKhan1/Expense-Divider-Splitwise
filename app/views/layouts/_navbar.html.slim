@@ -1,0 +1,13 @@
+header.bg-gray-800.text-white
+  .container.mx-auto.p-4.flex.justify-between.items-center
+    h1.text-lg.font-bold
+      = link_to "Splitwise", root_path, class: "hover:underline"      
+    nav.flex.items-center
+      - if user_signed_in?
+        = link_to "Home", root_path, class: "mx-4 hover:underline"
+        form method="delete" action="/users/sign_out" class="ml-4"
+          button.btn.bg-red-500.hover:bg-red-600.text-white.px-4.py-2.rounded.cursor-pointer type="submit"
+            | Logout
+      - else
+        = link_to "Login", new_user_session_path, class: "mx-4 hover:underline"
+        = link_to "Sign Up", new_user_registration_path, class: "bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded"
